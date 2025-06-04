@@ -147,7 +147,7 @@ module Fog
         def export(uri, options: {})
           requires :identity
 
-          data = service.export_instance(identity, uri, options)
+          data = service.export_instance(identity, uri, databases: options[:databases])
           operation = Fog::Google::SQL::Operations.new(:service => service).get(data.name)
           operation.tap { |o| o.wait_for { ready? } unless async }
         end
