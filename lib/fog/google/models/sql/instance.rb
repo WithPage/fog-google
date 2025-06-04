@@ -149,7 +149,7 @@ module Fog
 
           data = service.export_instance(identity, uri, databases: options[:databases])
           operation = Fog::Google::SQL::Operations.new(:service => service).get(data.name)
-          operation.tap { |o| o.wait_for { ready? } unless async }
+          operation.tap { |o| o.wait_for { ready? } unless options[:async] }
         end
 
         ##
