@@ -32,7 +32,7 @@ module Fog
               ::Google::Apis::SqladminV1beta4::ExportContext::SqlExportOptions.new(**sql_export_options)
           end
 
-          export_context = ::Google::Apis::SqladminV1beta4::ExportContext.new(export_context)
+          export_context = ::Google::Apis::SqladminV1beta4::ExportContext.new(**data)
           @sql.export_instance(
             @project,
             instance_id,
